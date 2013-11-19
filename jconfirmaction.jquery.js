@@ -26,18 +26,18 @@
 
 				e.preventDefault();
 				thisHref	= $(this).attr('href');
-				
-				if($(this).next('.question').length <= 0)
-					$(this).after('<div class="question">'+theOptions.question+'<br/> <span class="yes">'+theOptions.yesAnswer+'</span><span class="cancel">'+theOptions.cancelAnswer+'</span></div>');
-				
-				$(this).next('.question').animate({opacity: 1}, 300);
-				
+
+				if($(this).next('.jconfirmaction-question').length <= 0)
+					$(this).after('<div class="jconfirmaction-question">'+theOptions.question+'<br/> <span class="yes">'+theOptions.yesAnswer+'</span><span class="cancel">'+theOptions.cancelAnswer+'</span></div>');
+
+				$(this).next('.jconfirmaction-question').animate({opacity: 1}, 300);
+
 				$('.yes').bind('click', function(){
 					window.location = thisHref;
 				});
 		
 				$('.cancel').bind('click', function(){
-					$(this).parents('.question').fadeOut(300, function() {
+					$(this).parents('.jconfirmaction-question').fadeOut(300, function() {
 						$(this).remove();
 					});
 				});
